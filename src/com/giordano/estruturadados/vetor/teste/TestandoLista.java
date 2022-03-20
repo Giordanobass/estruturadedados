@@ -4,49 +4,42 @@ import java.util.*;
 
 public class TestandoLista {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	List<Object> lista1 = new ArrayList<>();
-	List<Object> lista2 = new ArrayList<>();
-	List<Object> lista3 = new ArrayList<>();
-	Object[] dados1 = { 1, 2, 3, 4 };
-	Object[] dados2 = { "a", "b", "c", "d" };
-	Object[] dados3 = { "a1", "b2", "c3", "d4" };
-	lista1.add(dados1);
-	lista1.add(dados2);
-	lista1.add(dados3);
-	lista2.add(dados2);
-	lista3.add(dados3);
+		List<Object> lista1 = new ArrayList<>();
+		Object[] dados0 = { 65, 1, "lci-1" };
+		Object[] dados1 = { 65, 92, "lci-92" };
+		Object[] dados2 = { 65, 98, "lci-98" };
+		Object[] dados3 = { 67, 1, "lci-67-1" };
+		Object[] dados4 = { 67, 2, "lci-67-2" };
+		Object[] dados5 = { 2078, 1, "lci-2078-1" };
+		lista1.add(dados0);
+		lista1.add(dados1);
+		lista1.add(dados2);
+		lista1.add(dados3);
+		lista1.add(dados4);
+		lista1.add(dados5);
 
-	List<Object> listaTotal = lista1;
-
-	for (int a = 0; a < listaTotal.size(); a++) {
-	    Object[] obj0 = (Object[]) listaTotal.get(a);
-
-	    for (int i = 0; i < lista1.size(); i++) {
-		Object[] obj1 = (Object[]) lista1.get(i);
-
-		for (int o = 0; o < lista2.size(); o++) {
-		    Object[] obj2 = (Object[]) lista2.get(o);
-
-		    for (int u = 0; u < lista3.size(); u++) {
-			Object[] obj3 = (Object[]) lista3.get(u);
-			System.out.println("------");
-			System.out.println(obj0);
-			System.out.println(obj0[3]);
-			System.out.println("------");
-			System.out.println(obj1);
-			System.out.println(obj1[3]);
-			System.out.println("------");
-			System.out.println(obj2);
-			System.out.println(obj2[3]);
-			System.out.println("------");
-			System.out.println(obj3);
-			System.out.println(obj3[3]);
-		    }
+		for (int a = 0; a < lista1.size(); a++) {
+			Object[] obj0 = (Object[]) lista1.get(a);
+			int count = 0;
+			System.out.println("Produto");
+			System.out.println(obj0[0].toString());
+			System.out.println("---------------------");
+			for (int i = a; i < lista1.size(); i++) {
+				Object[] obj1 = (Object[]) lista1.get(i);
+				String produtoObj0 = obj0[0].toString();
+				String produtoObj1 = obj1[0].toString();
+				if (!produtoObj0.equals(produtoObj1)) {
+					a = a - 1;
+//					i = a;
+					break;
+				}
+				a++;
+				System.out.println("Contador: " + count);
+				System.out.println("Modalidade");
+				System.out.println(obj1[2].toString());
+			}
 		}
-	    }
-
 	}
-    }
 }

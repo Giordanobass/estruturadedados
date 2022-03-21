@@ -13,19 +13,28 @@ public class TestandoLista {
 		Object[] dados3 = { 67, 1, "lci-67-1" };
 		Object[] dados4 = { 67, 2, "lci-67-2" };
 		Object[] dados5 = { 2078, 1, "lci-2078-1" };
+		Object[] dados6 = { 2078, 2, "lci-2078-2" };
+		Object[] dados7 = { 2078, 3, "lci-2078-3" };
+		Object[] dados8 = { 2078, 4, "lci-2078-4" };
+		Object[] dados9 = { 25, 1, "lci-25-1" };
+		Object[] dados10 = { 79, 1, "lci-79-1" };
 		lista1.add(dados0);
 		lista1.add(dados1);
 		lista1.add(dados2);
 		lista1.add(dados3);
 		lista1.add(dados4);
 		lista1.add(dados5);
+		lista1.add(dados6);
+		lista1.add(dados7);
+		lista1.add(dados8);
+		lista1.add(dados9);
+		lista1.add(dados10);
 
 		for (int a = 0; a < lista1.size(); a++) {
 			Object[] obj0 = (Object[]) lista1.get(a);
-			int count = 0;
 			System.out.println("Produto");
 			System.out.println(obj0[0].toString());
-			System.out.println("---------------------");
+
 			for (int i = a; i < lista1.size(); i++) {
 				Object[] obj1 = (Object[]) lista1.get(i);
 				String produtoObj0 = obj0[0].toString();
@@ -33,10 +42,10 @@ public class TestandoLista {
 				if (!produtoObj0.equals(produtoObj1)) {
 					a = a - 1;
 //					i = a;
+					System.out.println("------------------");
 					break;
 				}
 				a++;
-				System.out.println("Contador: " + count);
 				System.out.println("Modalidade");
 				System.out.println(obj1[2].toString());
 			}

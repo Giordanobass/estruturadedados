@@ -80,6 +80,18 @@ public class Vetor {
 	}
 	return -1;
     }
+    
+    // B G D E F -> posição a ser removida é 1(G)
+    // 0 1 2 3 4 -> tamanho é 5
+    public void remove(int posicao) {
+	if(!(posicao >= 0 && posicao < tamanho)) {
+	    throw new IllegalArgumentException("Posição inválida!");
+	}
+	for(int i=posicao; i<this.tamanho-1; i++) {
+	    this.elementos[i] = this.elementos[i+1];
+	}
+	this.tamanho--;
+    }
 
     public int tamanho() {
 	return this.tamanho;

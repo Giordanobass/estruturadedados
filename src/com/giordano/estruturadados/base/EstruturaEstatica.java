@@ -14,9 +14,9 @@ public class EstruturaEstatica<T> {
     public EstruturaEstatica() {
 	this(10);
     }
-    
+
     public boolean estaVazia() {
-	return this.tamanho==0; 
+	return this.tamanho == 0;
     }
 
     protected boolean adiciona(T elemento) {
@@ -31,17 +31,30 @@ public class EstruturaEstatica<T> {
 
     protected boolean adiciona(int posicao, T elemento) {
 
-	if (!(posicao >= 0 && posicao < tamanho)) {
-	    throw new IllegalArgumentException("Posicao inválida");
+	if (posicao < 0 || posicao > tamanho) {
+	    throw new IllegalArgumentException("Posição inválida");
 	}
 
+	this.aumentaCapacidade();
+
+	// mover todos os elementos
 	for (int i = this.tamanho - 1; i >= posicao; i--) {
 	    this.elementos[i + 1] = this.elementos[i];
 	}
 	this.elementos[posicao] = elemento;
 	this.tamanho++;
 
-	return false;
+	return true;
+    }
+
+    protected void remove(int posicao) {
+	if (!(posicao >= 0 && posicao < tamanho)) {
+	    throw new IllegalArgumentException("Posição inválida");
+	}
+	for (int i = posicao; i < tamanho - 1; i++) {
+	    elementos[i] = elementos[i + 1];
+	}
+	tamanho--;
     }
 
     @SuppressWarnings({ "unused", "unchecked" })
